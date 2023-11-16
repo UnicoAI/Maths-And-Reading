@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+ 
+  xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+   xmlns:models="clr-namespace:KidsMauiApp.Models"
+    x:Class="KidsMauiApp.Views.MenusDetailsPage"
+    x:DataType="models:Menu"
+    Title="Menu Details">
+    <ios:Page.UseSafeArea>true</ios:Page.UseSafeArea>
+
+    <Grid
+        Margin="24,52,24,0"
+        IgnoreSafeArea="{OnPlatform Android=True, iOS=True}"
+        ColumnDefinitions="*,*"
+        RowDefinitions="Auto,*">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0f0979" Offset="0.0" />
+                <GradientStop Color="#044d7e" Offset="0.6"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Header Icons -->
+        <ImageButton
+            WidthRequest="34"
+            HeightRequest="34"
+            Source="imgback.png"
+            Background="Transparent"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Clicked="BackButton_Clicked" />
+
+        <ImageButton
+            WidthRequest="34"
+            HeightRequest="34"
+            Source="imgmenu.png"
+            Background="Transparent"
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            Clicked="OnItemTapped"/>
+
+
+        <!-- Main Content ScrollView -->
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never"
+            Margin="0,16,0,0">
+
+            <VerticalStackLayout
+                Spacing="18">
+
+                <!-- Menu Image -->
+                <ImageButton
+                    Source="{Binding HeroImage}"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Fill"
+                    HeightRequest="240"
+                    Margin="24,0"
+                   
+                    Clicked="OnItemTapped"/>
+
+                <!-- Menu Name -->
+                <Label
+                    Style="{StaticResource PlanetHeaderStyle}"
+                    Text="{Binding Name}"
+                    Margin="0,-24,0,0"/>
+                <Button
+Style="{StaticResource ButtonStyle}"
+Text="PLAY"
+HorizontalOptions="Center"
+Margin="0,12,0,6"
+Clicked="OnItemTapped"/>
+
+                <!-- Menu Subtitle -->
+                <Label
+                    Margin="0,-12,0,0"
+                    Style="{StaticResource PlanetHeaderSubtitleStyle}"
+                    Text="{Binding Subtitle}" />
+
+                <!-- Divider -->
+                <Rectangle
+                    HorizontalOptions="Fill"
+                    HeightRequest="2"
+                    Stroke="Transparent"
+                    Fill="{StaticResource LightBorderColor}" />
+
+                <!-- Menu Info -->
+                <Label
+                    Style="{StaticResource PlanetDetailsTextStyle}"
+                    LineBreakMode="WordWrap"
+                    Text="{Binding Description}" />
+
+
+                <!-- Divider -->
+                <Rectangle
+                    HorizontalOptions="Fill"
+                    HeightRequest="2"
+                    Stroke="Transparent"
+                    Fill="{StaticResource LightBorderColor}" />
+
+                <!-- Planet Gallery -->
+                <Label
+                    Style="{StaticResource PlanetHeaderSubtitleStyle}"
+                    Text="Gallery" />
+
+                <CollectionView
+                    Margin="0,-6,0,0"
+                    HeightRequest="160"
+                    ItemsSource="{Binding Images}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                            Orientation="Horizontal"
+                            ItemSpacing="16" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
+                                Source="{Binding .}"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                WidthRequest="160">
+                                <Image.Clip>
+                                    <RoundRectangleGeometry
+                                        Rect="0,0,160,160"
+                                        CornerRadius="16" />
+                                </Image.Clip>
+                            </Image>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+                <Grid
+    
+     HeightRequest="60"
+   >
+                    <Grid
+    RowDefinitions="*,Auto,Auto"
+    RowSpacing="4">
+                        <Label
+                                            Grid.Row="0"
+                                            Style="{StaticResource MenuLabelStyle}"
+                                            Text="© Copyright Marius Daniel Boncica.
+"
+                                            Margin="0,4,0,0"/>
+
+                    </Grid>
+
+
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

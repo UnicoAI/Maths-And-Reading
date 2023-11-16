@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+ 
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:models="clr-namespace:KidsMauiApp.Models"
+    x:Class="KidsMauiApp.Views.MathsDivision"
+    Title="Maui Maths">
+
+    <ios:Page.UseSafeArea>true</ios:Page.UseSafeArea>
+    
+
+
+    <Grid
+     IgnoreSafeArea="{OnPlatform Android=True, iOS=True}">
+
+               <!-- Menu Grid -->
+        <Grid
+            x:Name="MenuContainer"
+            IgnoreSafeArea="{OnPlatform Android=True, iOS=True}">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0f0979" Offset="0.0" />
+                    <GradientStop Color="#0f6fae" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GridArea_Tapped" />
+            </Grid.GestureRecognizers>
+
+            <VerticalStackLayout
+                Margin="0,52,24,0"
+                HorizontalOptions="End"
+                Spacing="20">
+
+
+                <Grid
+                    Margin="0,40,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ImageButton
+                            Grid.Row="0"
+        Source="home.jpeg"
+          WidthRequest="180"
+                        MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                            Clicked="Home_Clicked"
+                        
+    />
+                   
+
+
+                </Grid>
+
+
+                <Grid
+                    Margin="0,40,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ImageButton
+                            Grid.Row="0"
+        Source="maths.png"
+            WidthRequest="180"
+                MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                            Clicked="Maths_Clicked"
+                        
+    />
+                   
+                       
+                        
+                    </Grid>
+
+             
+
+                <Grid
+                    Margin="0,40,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ImageButton
+    Source="read.jpeg"
+      WidthRequest="180"
+                MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                        Clicked="Planetsviews_Clicked"
+                    
+/>
+
+                    
+
+                    
+                </Grid>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid
+         x:Name="MainContentGrid"
+         Padding="24,52,24,0"
+         IgnoreSafeArea="{OnPlatform Android=True, iOS=True}"
+         BackgroundColor="{StaticResource PageBackgroundColor}"
+         ColumnDefinitions="*,Auto"
+         RowDefinitions="Auto,*">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0f0979" Offset="0.0" />
+                    <GradientStop Color="#0f6fae" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <!-- Header Text -->
+            <VerticalStackLayout
+             Spacing="4"
+             Grid.Row="0"
+             Grid.Column="0"
+             VerticalOptions="Center">
+
+                <Label
+                 Style="{StaticResource PageHeaderStyle}"
+                 Text="Let's Do Maths"/>
+
+                <Label
+                 Style="{StaticResource PageHeaderSubtitleStyle}"
+                 Text="Count with me!"/>
+
+            </VerticalStackLayout>
+
+            <!-- Menu Pic -->
+            <Border
+             WidthRequest="56"
+             HeightRequest="56"
+             VerticalOptions="Center"
+             HorizontalOptions="End"
+             Stroke="{StaticResource LightBorderColor}"
+             BackgroundColor="White"
+             StrokeThickness="6"
+             Grid.Row="0"
+             Grid.Column="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28"/>
+                </Border.StrokeShape>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ProfilePic_Clicked" />
+                </Border.GestureRecognizers>
+
+                <Image
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 WidthRequest="50"
+                 HeightRequest="50"
+                 Source="profilepic.jpeg">
+                    <Image.Clip>
+                        <EllipseGeometry
+                         Center="25,25"
+                         RadiusX="25"
+                         RadiusY="25"/>
+                    </Image.Clip>
+                </Image>
+
+            </Border>
+
+            <!-- Main Content ScrollView -->
+            <ScrollView
+             Grid.Row="1"
+             Grid.Column="0"
+             Grid.ColumnSpan="2"
+             HorizontalScrollBarVisibility="Never"
+             VerticalScrollBarVisibility="Never"
+             Margin="0,32,-24,0">
+
+                <VerticalStackLayout
+                 Spacing="6">
+
+                   
+
+
+                    <ScrollView>
+                        
+                        
+                        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+                         
+                           >
+                            <StackLayout>
+                                <Grid
+      x:Name="background"
+            RowDefinitions="*,Auto,Auto"
+            RowSpacing="2"
+
+>
+                                    <Grid.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#00abff" Offset="0.0" />
+                                            <GradientStop Color="#090979" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+                                    <!-- Bottom Tab Bar -->
+                                    <Border
+      Padding="10,0,0,0"
+      BackgroundColor="#393965"
+      Opacity="0.8"
+      Stroke="{StaticResource BorderColor}"
+      HorizontalOptions="Fill"
+      VerticalOptions="End"
+      Margin="0,0,0,0"
+      HeightRequest="60"
+      WidthRequest="180"
+      Grid.Row="1"
+      Grid.Column="0"
+      Grid.ColumnSpan="2">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="5"/>
+                                        </Border.StrokeShape>
+
+                                        <Grid
+          HorizontalOptions="Fill"
+          VerticalOptions="Center" 
+          RowDefinitions="Auto,Auto"
+          ColumnDefinitions="*,*,*"
+          RowSpacing="6">
+
+                                            <ImageButton
+              WidthRequest="60"
+              HeightRequest="60"
+              Source="addition.png"
+              Grid.Row="0"
+              Grid.Column="0"
+                                                Margin="35,0,0,0"
+              HorizontalOptions="Center"
+                                                Clicked="Maths_Clicked"/>
+
+
+                                            <ImageButton
+              WidthRequest="60"
+              HeightRequest="60"
+              Source="substraction.png"
+                         Margin="40,0,0,0"                       
+              Grid.Row="0"
+              Grid.Column="1"
+              HorizontalOptions="Center" 
+                                                Clicked="MathsSubscription_Clicked"/>
+
+
+
+                                        </Grid>
+
+                                    </Border>
+                                    <!-- Bottom Tab Bar -->
+                                    <Border
+      Padding="0,0"
+      BackgroundColor="#393965"
+      Opacity="0.9"
+      Stroke="{StaticResource BorderColor}"
+      HorizontalOptions="Fill"
+      VerticalOptions="End"
+      Margin="0,0,0,0"
+      HeightRequest="60"
+      WidthRequest="180"
+      Grid.Row="2"
+      Grid.Column="0"
+      Grid.ColumnSpan="2">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="5"/>
+                                        </Border.StrokeShape>
+
+                                        <Grid
+          HorizontalOptions="Fill"
+          VerticalOptions="Center" 
+          RowDefinitions="Auto,Auto"
+          ColumnDefinitions="*,*,*"
+          RowSpacing="6">
+                                            <ImageButton
+WidthRequest="60"
+HeightRequest="60"
+Source="multiplication1.png"
+Grid.Row="0"
+                                                Margin="50,0,0,0"    
+Grid.Column="0"
+HorizontalOptions="Center"
+                                                Clicked="MathsMultiplication_Clicked"/>
+
+
+
+                                            <ImageButton
+              WidthRequest="60"
+              HeightRequest="60"
+              Source="division.jpg"
+                                                Margin="50,0,0,0"    
+              Grid.Row="0"
+              Grid.Column="1"
+              HorizontalOptions="Center"
+                                                Clicked="MathsDivision_Clicked"/>
+
+
+                                        </Grid>
+
+                                    </Border>
+
+                                </Grid>
+                               
+
+                                <Border
+Padding="12,4"
+BackgroundColor="#33CCCCCC"
+Stroke="{StaticResource BorderColor}"
+HorizontalOptions="Fill"
+Margin="0,20,24,20"
+HeightRequest="48"
+                 >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="6"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid
+    HorizontalOptions="Fill"
+    VerticalOptions="Center"
+    ColumnDefinitions="Auto,*"
+    ColumnSpacing="16">
+
+                                        <Label x:Name="problemLabel"
+                                       SemanticProperties.HeadingLevel="Level3"
+                                       FontSize="Large"
+                                       
+                                       TextColor="white"
+                                       Text=" " />
+                                    </Grid>
+
+                                </Border>
+
+                                <Border
+                   Padding="12,4"
+                   BackgroundColor="#33CCCCCC"
+                   Stroke="{StaticResource BorderColor}"
+                   HorizontalOptions="Fill"
+                   Margin="0,0,24,0"
+                   HeightRequest="48"
+                                    >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="6"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Center"
+                       ColumnDefinitions="Auto,*"
+                       ColumnSpacing="16">
+
+                                        <Image
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           Source="answer.png"
+                                           
+                           Grid.Column="0"
+                           VerticalOptions="Center" />
+
+                                        <Entry
+                                            x:Name="userAnswerEntry" 
+                           Placeholder="Answer"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           
+                           
+
+
+FontFamily="MediumFont"
+HorizontalOptions="Fill"
+Margin="0,-5,0,0"
+FontSize="25"
+/>
+
+                                    </Grid>
+
+                                </Border>
+
+                             
+                                <Label x:Name="resultLabel"
+                                       SemanticProperties.HeadingLevel="Level3"
+FontSize="15"
+                                     TextColor="White"
+                                     Text="" />
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ImageButton
+        Grid.Column="0"
+        Style="{StaticResource ButtonStyle}"
+         BorderColor="Transparent"
+ BorderWidth="0"
+                  Background="Transparent"
+                                        BackgroundColor="Transparent"
+        Source="checkanswer.png"
+        Margin="20,20,20,20"
+        WidthRequest="80"
+        HorizontalOptions="Center"
+        Clicked="CheckAnswer" />
+
+                                    <ImageButton
+        Grid.Column="1"
+        Style="{StaticResource ButtonStyle}"
+        Background="Transparent"
+                                        
+                                        BorderColor="Transparent"
+                                        BorderWidth="0"
+        Source="restart.png"
+        Margin="20,20,20,20"
+        WidthRequest="100"
+        HorizontalOptions="Center"
+        Clicked="MathsDivision_Clicked" />
+                                </Grid>
+
+
+                            </StackLayout>
+                            
+                            
+
+
+                            <HorizontalStackLayout
+            HorizontalOptions="Center"
+                                MaximumWidthRequest="200"
+                                Margin="-80,0,0,10"
+                                Padding="0,0,0,0"
+                                />
+
+                           
+
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+            </ScrollView>
+            <!-- Bottom Tab Bar -->
+            <Border
+     Padding="16,0"
+     BackgroundColor="#393965"
+     Opacity="0.8"
+     Stroke="{StaticResource BorderColor}"
+     HorizontalOptions="Fill"
+     VerticalOptions="End"
+     Margin="0,0,0,0"
+     HeightRequest="60"
+     WidthRequest="240"
+     Grid.Row="1"
+     Grid.Column="0"
+     Grid.ColumnSpan="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15"/>
+                </Border.StrokeShape>
+
+                <Grid
+         HorizontalOptions="Fill"
+         VerticalOptions="Center" 
+         RowDefinitions="Auto,Auto"
+         ColumnDefinitions="*,*,*"
+         RowSpacing="6">
+
+                    <ImageButton
+             WidthRequest="30"
+             HeightRequest="30"
+             Source="reading.jpeg"
+             Grid.Row="0"
+             Grid.Column="0"
+             HorizontalOptions="Center"
+             Clicked="Planetsviews_Clicked"/>
+                    <Label
+             Text="Read"
+             Grid.Row="1"
+             Grid.Column="0"
+             HorizontalOptions="Center"
+             Style="{StaticResource MenuLabelStyle}" />
+
+                    <ImageButton
+             WidthRequest="30"
+             HeightRequest="30"
+             Source="mathicon.png"
+             Grid.Row="0"
+             Grid.Column="1"
+             HorizontalOptions="Center"
+             Clicked="Maths_Clicked"/>
+                    <Label
+             Text="Maths"
+             Grid.Row="1"
+             Grid.Column="1"
+             HorizontalOptions="Center"
+             Style="{StaticResource MenuLabelStyle}" />
+
+                    <!-- Profile Image -->
+                    <Image
+x:Name="ProfileImage"
+WidthRequest="30"
+HeightRequest="30"
+Source="imgprofile.png"
+Grid.Row="0"
+Grid.Column="2"
+HorizontalOptions="Center" />
+
+                    <!-- Profile Label with TapGestureRecognizer -->
+                    <Label
+Text="Profile"
+Grid.Row="1"
+Grid.Column="2"
+HorizontalOptions="Center"
+Style="{StaticResource MenuLabelStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangeProfilePicture_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+    </Grid>
+</ContentPage>

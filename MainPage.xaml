@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+ 
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:models="clr-namespace:KidsMauiApp.Models"
+    x:Class="KidsMauiApp.MainPage"
+    Title="Main Page">
+    <ios:Page.UseSafeArea>true</ios:Page.UseSafeArea>
+    <Grid
+        IgnoreSafeArea="{OnPlatform Android=True, iOS=True}">
+
+        <!-- Menu Grid -->
+        <Grid
+            x:Name="MenuContainer"
+            IgnoreSafeArea="{OnPlatform Android=True, iOS=True}">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0f0979" Offset="0.0" />
+                    <GradientStop Color="#0f6fae" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GridArea_Tapped" />
+            </Grid.GestureRecognizers>
+
+            <VerticalStackLayout
+                Margin="0,52,24,0"
+                HorizontalOptions="End"
+                Spacing="20"
+                >
+
+
+                <Grid
+                    Margin="0,40,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ImageButton
+                            Grid.Row="0"
+        Source="home.jpeg"
+          WidthRequest="180"
+                        MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                            Clicked="Home_Clicked"
+                        
+    />
+                   
+
+
+                </Grid>
+
+
+                <Grid
+                    Margin="0,40,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <ImageButton
+                            Grid.Row="0"
+        Source="maths.png"
+            WidthRequest="180"
+                MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                            Clicked="Maths_Clicked"
+                        
+    />
+                   
+                       
+                        
+                    </Grid>
+
+             
+
+                <Grid
+                    Margin="0,40,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ImageButton
+    Source="read.jpeg"
+      WidthRequest="180"
+                MaximumHeightRequest="60"
+    HorizontalOptions="Center"
+    VerticalOptions="Center"
+                        Clicked="Planetsviews_Clicked"
+                    
+/>
+
+                    
+
+                    
+                </Grid>
+
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Main Content -->
+        <Grid
+            x:Name="MainContentGrid"
+            Padding="24,52,24,0"
+            IgnoreSafeArea="{OnPlatform Android=True, iOS=True}"
+            BackgroundColor="{StaticResource PageBackgroundColor}"
+            ColumnDefinitions="*,Auto"
+            RowDefinitions="Auto,*">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0f0979" Offset="0.0" />
+                    <GradientStop Color="#0f6fae" Offset="0.6"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GridArea_Tapped" />
+            </Grid.GestureRecognizers>
+            <!-- Header Text -->
+            <VerticalStackLayout
+                Spacing="4"
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+
+                <Label
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    Text="Play And Learn!"
+                   />
+
+                <Label
+                    Style="{StaticResource MenuLabelStyle}"
+                    Text="By Marius Boncica"/>
+
+            </VerticalStackLayout>
+
+            <!-- Menu Pic -->
+            <Border
+                WidthRequest="56"
+                HeightRequest="56"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Stroke="{StaticResource LightBorderColor}"
+                BackgroundColor="White"
+                StrokeThickness="6"
+                Grid.Row="0"
+                Grid.Column="1">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="28"/>
+                </Border.StrokeShape>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Menu_Clicked" />
+                </Border.GestureRecognizers>
+
+                <Image
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Source="profilepic.jpeg"
+                    >
+                    <Image.Clip>
+                        <EllipseGeometry
+                            Center="25,25"
+                            RadiusX="25"
+                            RadiusY="25"/>
+                    </Image.Clip>
+                </Image>
+
+            </Border>
+
+            <!-- Main Content ScrollView -->
+            <ScrollView
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never"
+                Margin="0,32,-24,0">
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    
+
+                    <!-- Apps selection -->
+                    <Label
+                        Style="{StaticResource PageSubHeaderStyle}"
+                        Margin="0,12,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Most Popular   " />
+                                <Span Text="→" FontSize="20" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <CollectionView
+                        x:Name="lstPopularMenus"
+                        HeightRequest="280"
+                        SelectionMode="Single"
+                        SelectionChanged="Menus_SelectionChanged">
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout
+                                Orientation="Horizontal"
+                                ItemSpacing="16" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate
+                                x:DataType="models:Menu">
+                                <Border
+                                    VerticalOptions="Fill"
+                                    WidthRequest="220"
+                                    StrokeThickness="0"
+                                    Background="{Binding Background}"
+                                    Padding="20">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="24"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid
+                                        RowDefinitions="*,Auto,Auto"
+                                        RowSpacing="4">
+
+                                        <Image
+                                            Grid.Row="0"
+                                            Source="{Binding HeroImage}"
+                                            Rotation="-30"
+                                            Aspect="AspectFit"
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"/>
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Style="{StaticResource FeaturedPlanetHeaderStyle}"
+                                            Text="{Binding Name}"
+                                            Margin="0,8,0,0"/>
+
+                                        <Label
+                                            Grid.Row="2"
+                                            Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}"
+                                            Text="{Binding Subtitle}" />
+
+                                    </Grid>
+
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+
+                    <!-- More Section -->
+                    <Label
+                        Style="{StaticResource PageSubHeaderStyle}"
+                        Margin="0,12,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="About Developer"  />
+                                <Span Text="→" FontSize="20" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Grid
+                       
+                        HeightRequest="160"
+                      >
+
+
+                        <Border
+                            
+    VerticalOptions="Fill"
+    WidthRequest="220"
+    StrokeThickness="0"
+    Background="#d17f21"
+    Padding="20,20,20,20">
+
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="14"/>
+                            </Border.StrokeShape>
+
+                            <Grid
+                                  x:Name="background"
+                                        RowDefinitions="*,Auto,Auto"
+                                        RowSpacing="4"
+                            
+                            >
+                                <Grid.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#00abff" Offset="0.0" />
+                                        <GradientStop Color="#090979" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+
+                                <Image
+                                            Grid.Row="0"
+                                            Source="imgprofile.png"
+                                            Rotation="30"
+                                            Aspect="AspectFit"                                        
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                    MinimumWidthRequest="180"
+                                    
+                              />
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Grid
+    
+     HeightRequest="60"
+   >
+                        <Grid
+    RowDefinitions="*,Auto,Auto"
+    RowSpacing="4">
+                        <Label
+                                            Grid.Row="0"
+                                            Style="{StaticResource MenuLabelStyle}"
+                                            Text="© Copyright Marius Daniel Boncica.
+"
+                                            Margin="0,4,0,0"/>
+
+                                    </Grid>
+
+                         
+
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+            <!-- Bottom Tab Bar -->
+            <Border
+                Padding="16,0"
+                BackgroundColor="#393965"
+                Opacity="0.8"
+                Stroke="{StaticResource BorderColor}"
+                HorizontalOptions="Fill"
+                VerticalOptions="End"
+                Margin="0,0,0,0"
+                HeightRequest="60"
+                WidthRequest="240"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15"/>
+                </Border.StrokeShape>
+
+                <Grid
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Center" 
+                    RowDefinitions="Auto,Auto"
+                    ColumnDefinitions="*,*,*"
+                    RowSpacing="6">
+
+                    <ImageButton
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        Source="reading.jpeg"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalOptions="Center"
+                        Clicked="Planetsviews_Clicked"/>
+                    <Label
+                        Text="Read"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource MenuLabelStyle}" />
+
+                    <ImageButton
+                        WidthRequest="30"
+                        HeightRequest="30"
+                        Source="mathicon.png"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Clicked="Maths_Clicked"/>
+                    <Label
+                        Text="Maths"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Center"
+                        Style="{StaticResource MenuLabelStyle}" />
+
+                    <!-- Profile Image -->
+                    <Image
+    x:Name="ProfileImage"
+    WidthRequest="30"
+    HeightRequest="30"
+    Source="imgprofile.png"
+    Grid.Row="0"
+    Grid.Column="2"
+    HorizontalOptions="Center" />
+
+                    <!-- Profile Label with TapGestureRecognizer -->
+                    <Label
+    Text="Profile"
+    Grid.Row="1"
+    Grid.Column="2"
+    HorizontalOptions="Center"
+    Style="{StaticResource MenuLabelStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangeProfilePicture_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+
+</ContentPage>
