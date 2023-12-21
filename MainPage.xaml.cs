@@ -4,6 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Threading.Tasks;
 
+
 namespace KidsMauiApp;
 
 public partial class MainPage : ContentPage
@@ -69,6 +70,12 @@ public partial class MainPage : ContentPage
         _ = MainContentGrid.ScaleTo(1, AnimationDuration);
         await MainContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
     }
+    private void OnLinkTapped(object sender, EventArgs e)
+    {
+        var url = "https://www.daniel-boncica.com"; // Marius Daniel Boncica Website
+        Launcher.OpenAsync(new Uri(url));
+    }
+
     async void ChangeProfilePicture_Tapped(object sender, EventArgs e)
     {
         try

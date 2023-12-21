@@ -166,9 +166,9 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <Grid HeightRequest="160">
+                    <Grid HeightRequest="240">
 
-                        <Border VerticalOptions="Fill" WidthRequest="220" StrokeThickness="0" Background="#d17f21" Padding="20,20,20,20">
+                        <Border VerticalOptions="Fill" WidthRequest="220" StrokeThickness="0" Background="#d17f21" Padding="5,10,0,0">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="14"/>
                             </Border.StrokeShape>
@@ -177,12 +177,20 @@
 
                                 <Grid.Background>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#00abff" Offset="0.0" />
-                                        <GradientStop Color="#090979" Offset="1.0"/>
+                                        <GradientStop Color="#d17f21" Offset="0.0" />
+                                        <GradientStop Color="#d16836" Offset="1.0"/>
                                     </LinearGradientBrush>
                                 </Grid.Background>
 
-                                <Image Grid.Row="0" Source="imgprofile.png" Rotation="30" Aspect="AspectFit" VerticalOptions="Fill" HorizontalOptions="Fill" MinimumWidthRequest="180"/>
+                                <Image Grid.Row="0" Source="profilepicture.jpg" Rotation="0" Aspect="AspectFit" VerticalOptions="Fill" HorizontalOptions="Fill" WidthRequest="180" HeightRequest="180" Margin="100" />
+                                <Label Grid.Row="1" Style="{StaticResource FeaturedPlanetHeaderStyle}" Text="M D Boncica" Margin="0,8,0,0"/>
+                                <Label Grid.Row="2" Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}" Text="www.daniel-boncica.com">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLinkTapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+
 
                             </Grid>
                         </Border>

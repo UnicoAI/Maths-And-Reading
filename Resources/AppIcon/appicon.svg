@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="456" height="456" viewBox="0 0 456 456" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="456" height="456" fill="#512BD4" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+	<!-- Book -->
+	<rect x="50" y="50" width="50" height="100" fill="#FFA500" />
+
+
+	<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+		<path d="M0,172v-172h172v172z" fill="none"></path>
+		<g fill="#FFA500">
+			<path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path>
+		</g>
+	</g>
+
+
+
+	<!-- Text "MATHS" -->
+	<text x="50" y="70" font-family="Arial" font-size="20" fill="#FFFFFF">Maths</text>
+	<line x1="50" y1="80" x2="150" y2="80" stroke="blue" stroke-width="2" />
+	<text x="50" y="100" font-family="Arial" font-size="20" fill="#FFFFFF">And</text>
+	<line x1="50" y1="110" x2="150" y2="110" stroke="blue" stroke-width="2" />
+	<text x="50" y="140" font-family="Arial" font-size="20" fill="#FFFFFF">Reading</text>
+	<line x1="50" y1="150" x2="150" y2="150" stroke="blue" stroke-width="2" />
+
+	<!-- Text "Made by Daniel Boncica" -->
+	<text x="50" y="180" font-family="Arial" font-size="12" fill="#FFFFFF">By Daniel Boncica</text>
 </svg>
+
+
