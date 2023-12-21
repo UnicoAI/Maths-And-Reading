@@ -16,7 +16,7 @@ internal static class MenuService
             {
                 "maths.png",
                 "mathicon.png",
-                "maths2.png",
+                "mathsd.png",
               
             }
 		},

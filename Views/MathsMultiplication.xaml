@@ -290,7 +290,7 @@
                                             <ImageButton
 WidthRequest="60"
 HeightRequest="60"
-Source="multiplication1.png"
+Source="multiplicationu.png"
 Grid.Row="0"
                                                 Margin="50,0,0,0"    
 Grid.Column="0"
@@ -394,44 +394,85 @@ FontSize="25"
                              
                                 <Label x:Name="resultLabel"
                                        SemanticProperties.HeadingLevel="Level3"
-FontSize="15"
-                                     TextColor="White"
+FontSize="30"
+                                     TextColor="Gold"
                                      Text="" />
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                                <Border
+Padding="0,0,0,0"
+BackgroundColor="Transparent"
+Opacity="0.8"
+Stroke="{StaticResource BorderColor}"
+HorizontalOptions="Fill"
+VerticalOptions="End"
+Margin="0,0,0,0"
+HeightRequest="100"
+WidthRequest="260"
+Grid.Row="1"
+Grid.Column="0"
+Grid.ColumnSpan="1">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="5"/>
+                                    </Border.StrokeShape>
 
-                                    <ImageButton
-        Grid.Column="0"
-        Style="{StaticResource ButtonStyle}"
-         BorderColor="Transparent"
- BorderWidth="0"
-                  Background="Transparent"
-                                        BackgroundColor="Transparent"
-        Source="checkanswer.png"
-        Margin="20,20,20,20"
+                                    <Grid
+    HorizontalOptions="Center"
+    VerticalOptions="Center" 
+    RowDefinitions="Auto,Auto"
+    ColumnDefinitions="*,*,*"
+    RowSpacing="6">
+
+                                        <ImageButton
         WidthRequest="80"
+        HeightRequest="80"
+        Source="checkanswer.png"
+        Grid.Row="0"
+        Grid.Column="0"
+                                          Margin="0,0,0,0"
         HorizontalOptions="Center"
-        Clicked="CheckAnswer" />
+                                          Clicked="CheckAnswer"/>
+                                    </Grid>
+                                </Border>
+                                <Border
+Padding="0,0,0,0"
+BackgroundColor="Transparent"
+Opacity="0.8"
+Stroke="{StaticResource BorderColor}"
+HorizontalOptions="Fill"
+VerticalOptions="End"
+Margin="0,50,0,0"
+HeightRequest="100"
+WidthRequest="260"
+Grid.Row="1"
+Grid.Column="0"
+Grid.ColumnSpan="1">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="5"/>
+                                    </Border.StrokeShape>
 
-                                    <ImageButton
-        Grid.Column="1"
-        Style="{StaticResource ButtonStyle}"
-        Background="Transparent"
-                                        
-                                        BorderColor="Transparent"
-                                        BorderWidth="0"
-        Source="restart.png"
-        Margin="20,20,20,20"
+                                    <Grid
+    HorizontalOptions="Center"
+    VerticalOptions="Center" 
+    RowDefinitions="Auto,Auto"
+    ColumnDefinitions="*,*,*"
+    RowSpacing="6">
+
+
+                                        <ImageButton
         WidthRequest="100"
-        HorizontalOptions="Center"
-        Clicked="MathsMultiplication_Clicked" />
-                                </Grid>
+        HeightRequest="100"
+        Source="restart.png"
+                   Margin="0,0,0,0"                       
+        Grid.Row="0"
+        Grid.Column="1"
+        HorizontalOptions="Center" 
+                                          Clicked="MathsMultiplication_Clicked"/>
+
+
+
+                                    </Grid>
+
+                                </Border>
+
 
 
                             </StackLayout>

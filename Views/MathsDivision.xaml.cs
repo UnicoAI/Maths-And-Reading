@@ -51,7 +51,7 @@ public partial class MathsDivision : ContentPage
 
                 if (correctAnswersCount >= maxCorrectAnswers)
                 {
-                    resultLabel.Text = "You are a winner!";
+                    resultLabel.Text = "🏆Winner!🥇";
                     userAnswerEntry.IsEnabled = false;
                 }
                 else

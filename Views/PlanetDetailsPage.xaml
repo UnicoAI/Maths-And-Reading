@@ -101,35 +101,36 @@
                     Style="{StaticResource PlanetHeaderSubtitleStyle}"
                     Text="Gallery" />
 
-                <CollectionView
-                    Margin="0,-6,0,0"
-                    HeightRequest="160"
-                    ItemsSource="{Binding Images}">
+                <CarouselView
+Margin="0,-6,0,0"
+HeightRequest="170"
+ItemsSource="{Binding Images}">
 
-                    <CollectionView.ItemsLayout>
+                    <CarouselView.ItemsLayout>
                         <LinearItemsLayout
-                            Orientation="Horizontal"
-                            ItemSpacing="16" />
-                    </CollectionView.ItemsLayout>
+        Orientation="Horizontal"
+        ItemSpacing="16" />
+                    </CarouselView.ItemsLayout>
 
-                    <CollectionView.ItemTemplate>
+                    <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Image
-                                Source="{Binding .}"
-                                Aspect="AspectFill"
-                                HorizontalOptions="Fill"
-                                VerticalOptions="Fill"
-                                WidthRequest="160">
+            Source="{Binding .}"
+            Aspect="AspectFill"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            WidthRequest="160"
+                            HeightRequest="160">
                                 <Image.Clip>
                                     <RoundRectangleGeometry
-                                        Rect="0,0,160,160"
-                                        CornerRadius="16" />
+                    Rect="0,0,160,160"
+                    CornerRadius="16" />
                                 </Image.Clip>
                             </Image>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
+                    </CarouselView.ItemTemplate>
 
-                </CollectionView>
+                </CarouselView>
                 <Grid
     
      HeightRequest="60"

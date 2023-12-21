@@ -16,9 +16,12 @@
         {
             get
             {
-                var gradientStops = new GradientStopCollection();
-                gradientStops.Add(new GradientStop(AccentColorStart, 0.0f));
-                gradientStops.Add(new GradientStop(AccentColorEnd, 1.0f));
+                var gradientStops = new GradientStopCollection
+{
+    new GradientStop(AccentColorStart, 0.0f),
+    new GradientStop(AccentColorEnd, 1.0f)
+};
+
 
                 var bgBrush = new LinearGradientBrush(
                     gradientStops,

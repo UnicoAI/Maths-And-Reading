@@ -26,16 +26,27 @@ public partial class PlanetsPage : ContentPage
         lstAllPlanets.ItemsSource = PlanetsService.GetAllPlanets();
     }
 
-    async void Planets_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
+    async void Planets_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        IEnumerable selectedItems = e.CurrentSelection;
-
-        if (selectedItems != null && selectedItems.GetEnumerator().MoveNext())
+        try
         {
-            var firstSelectedItem = selectedItems.Cast<Planet>().First();
-            await Navigation.PushAsync(new PlanetDetailsPage(firstSelectedItem));
+            var carouselView = (CollectionView)sender;
+
+            if (e.CurrentSelection.FirstOrDefault() is Planet selectedPlanet)
+            {
+                await Navigation.PushAsync(new PlanetDetailsPage(selectedPlanet));
+            }
+
+            carouselView.SelectedItem = null; // Clear the selection after navigating
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions or log errors as needed
+            Console.WriteLine($"Error navigating to Planet Details Page: {ex.Message}");
         }
     }
+
+
 
     void Maths_Clicked(System.Object sender, System.EventArgs e)
       => Application.Current.MainPage = new NavigationPage(new MathsPage());

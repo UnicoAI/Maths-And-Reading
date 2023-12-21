@@ -60,7 +60,7 @@
 	  <None Remove="Resources\Images\imgprofile.png" />
 	  <None Remove="Resources\Images\imgsearch.png" />
 	  <None Remove="Resources\Images\jupiter.svg" />
-	  <None Remove="Resources\Images\kids1.jpg" />
+	  <None Remove="Resources\Images\kidsu.jpg" />
 	  <None Remove="Resources\Images\mars.svg" />
 	  <None Remove="Resources\Images\mercury.svg" />
 	  <None Remove="Resources\Images\neptune.svg" />

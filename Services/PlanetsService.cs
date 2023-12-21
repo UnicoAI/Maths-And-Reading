@@ -8,14 +8,14 @@ internal static class PlanetsService
 		{
 			Name = "Mercury",
 			Subtitle = "The smallest planet",
-			HeroImage = "mercury.png",
+			HeroImage = "mercury.svg",
 			Description = "Mercury is the first of the four terrestrial planets. This means it is a planet made mostly of rock. The planets closest to the Sun—Venus, Earth, and Mars—are the other three.",
 			AccentColorStart = Color.FromArgb("#353535"),
 			AccentColorEnd = Color.FromArgb("#8d9098"),
 			Images = new()
             {
-                "mercur1.jpg",
-                "mercur2.jpg",
+                "mercuru.jpg",
+                "mercurd.jpg",
                }
 		},
         new()
@@ -28,9 +28,9 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#d17f21"),
             Images = new()
             {
-                "venus1.jpg",
-                "venus2.jpg",
-                "venus3.jpg",
+                "venusu.jpg",
+                "venusd.jpg",
+                "venust.jpg",
            }
         },
         new()
@@ -43,8 +43,8 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#2e97c7"),
             Images = new()
             {
-                "earth1.jpg",
-                "earth2.jpg",
+                "earthu.jpg",
+                "earthd.jpg",
             }
         },
         new()
@@ -57,8 +57,8 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#eb3333"),
             Images = new()
             {
-                "mars1.jpeg",
-                "mars2.jpg"
+                "marsu.jpeg",
+                "marsd.jpg"
             }
         },
         new()
@@ -71,9 +71,9 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#cd8026"),
             Images = new()
             {
-                "jupiter1.jpg",
-                "jupiter2.jpg",
-                "jupiter3.jpg"
+                "jupiteru.jpg",
+                "jupiterd.jpg",
+                "jupitert.jpg"
             }
         },
         new()
@@ -86,9 +86,9 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#c6502f"),
             Images = new()
             {
-                "saturn1.jpg",
-                "saturn2.jpg",
-                "saturn3.jpg",
+                "saturnu.jpg",
+                "saturnd.jpg",
+                "saturnd.jpg",
             }
         },
         new()
@@ -101,9 +101,9 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#996237"),
             Images = new()
             {
-                "uranus1.jpg",
-                "uranus2.jpg",
-                "uranus3.jpg"
+                "uranusu.jpg",
+                "uranusd.jpg",
+                "uranust.jpg"
             }
         },
         new()
@@ -116,8 +116,8 @@ internal static class PlanetsService
             AccentColorEnd = Color.FromArgb("#26abe0"),
             Images = new()
             {
-                "neptun1.jpg",
-                "neptun2.jpg",
+                "neptunu.jpg",
+                "neptund.jpg",
             }
         }
     };

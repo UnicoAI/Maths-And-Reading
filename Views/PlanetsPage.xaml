@@ -201,61 +201,31 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <CollectionView
-                        x:Name="lstPopularPlanets"
-                        HeightRequest="280"
-                        SelectionMode="Single"
-                        SelectionChanged="Planets_SelectionChanged">
-
+                    <CollectionView x:Name="lstPopularPlanets" HeightRequest="280" SelectionMode="Single" SelectionChanged="Planets_SelectionChanged">
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout
-                                Orientation="Horizontal"
-                                ItemSpacing="16" />
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16" />
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
-                            <DataTemplate
-                                x:DataType="models:Planet">
-                                <Border
-                                    VerticalOptions="Fill"
-                                    WidthRequest="220"
-                                    StrokeThickness="0"
-                                    Background="{Binding Background}"
-                                    Padding="20">
+                            <DataTemplate x:DataType="models:Planet">
+                                <StackLayout>
+                                    <Border VerticalOptions="Fill" WidthRequest="220" StrokeThickness="0" Background="{Binding Background}" Padding="20">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="24"/>
+                                        </Border.StrokeShape>
 
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="24"/>
-                                    </Border.StrokeShape>
+                                        <Grid RowDefinitions="*,Auto,Auto" RowSpacing="4">
 
-                                    <Grid
-                                        RowDefinitions="*,Auto,Auto"
-                                        RowSpacing="4">
+                                            <!-- Display only the first image using a single Image element -->
+                                            <Image Source="{Binding Images[0]}" WidthRequest="180" HeightRequest="180" Rotation="0" Aspect="AspectFit" VerticalOptions="Fill" HorizontalOptions="Fill" />
 
-                                        <Image
-                                            Grid.Row="0"
-                                            Source="{Binding HeroImage}"
-                                            Rotation="-30"
-                                            Aspect="AspectFit"
-                                            VerticalOptions="Fill"
-                                            HorizontalOptions="Fill"/>
-
-                                        <Label
-                                            Grid.Row="1"
-                                            Style="{StaticResource FeaturedPlanetHeaderStyle}"
-                                            Text="{Binding Name}"
-                                            Margin="0,8,0,0"/>
-
-                                        <Label
-                                            Grid.Row="2"
-                                            Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}"
-                                            Text="{Binding Subtitle}" />
-
-                                    </Grid>
-
-                                </Border>
+                                            <Label Grid.Row="1" Style="{StaticResource FeaturedPlanetHeaderStyle}" Text="{Binding Name}" Margin="0,8,0,0"/>
+                                            <Label Grid.Row="2" Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}" Text="{Binding Subtitle}" />
+                                        </Grid>
+                                    </Border>
+                                </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-
                     </CollectionView>
 
 
@@ -271,56 +241,33 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <CollectionView
-                        x:Name="lstAllPlanets"
-                        HeightRequest="160"
-                        SelectionMode="Single"
-                        SelectionChanged="Planets_SelectionChanged">
-
+                    <CollectionView x:Name="lstAllPlanets" HeightRequest="280" SelectionMode="Single" SelectionChanged="Planets_SelectionChanged">
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout
-                                Orientation="Horizontal"
-                                ItemSpacing="16" />
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16" />
                         </CollectionView.ItemsLayout>
 
                         <CollectionView.ItemTemplate>
-                            <DataTemplate
-                                x:DataType="models:Planet">
-                                <Border
-                                    VerticalOptions="Fill"
-                                    WidthRequest="140"
-                                    StrokeThickness="0"
-                                    Background="{Binding Background}"
-                                    Padding="16">
+                            <DataTemplate x:DataType="models:Planet">
+                                <StackLayout>
+                                    <Border VerticalOptions="Fill"   WidthRequest="220" StrokeThickness="0" Background="{Binding Background}"  Padding="20">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="24"/>
+                                        </Border.StrokeShape>
 
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="16"/>
-                                    </Border.StrokeShape>
+                                        <Grid RowDefinitions="*,Auto,Auto" RowSpacing="4">
 
-                                    <Grid
-                                        RowDefinitions="*,Auto,Auto"
-                                        RowSpacing="4">
+                                            <!-- Display multiple images using a CarouselView -->
+                                            <Image Source="{Binding Images[0]}" WidthRequest="180" HeightRequest="180" Rotation="0" Aspect="AspectFit" VerticalOptions="Fill" HorizontalOptions="Fill" />
 
-                                        <Image
-                                            Grid.Row="0"
-                                            Source="{Binding HeroImage}"
-                                            Rotation="-30"
-                                            Aspect="AspectFit"                                        
-                                            VerticalOptions="Fill"
-                                            HorizontalOptions="Fill"/>
+                              
 
-                                        <Label
-                                            Grid.Row="1"
-                                            Style="{StaticResource AllPlanetHeaderStyle}"
-                                            Text="{Binding Name}"
-                                            Margin="0,4,0,0"/>
-
-                                    </Grid>
-
-                                </Border>
+                                            <Label Grid.Row="1" Style="{StaticResource FeaturedPlanetHeaderStyle}" Text="{Binding Name}" Margin="0,8,0,0"/>
+                                            <Label Grid.Row="2" Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}" Text="{Binding Subtitle}" />
+                                        </Grid>
+                                    </Border>
+                                </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-
                     </CollectionView>
                     <Grid
     
